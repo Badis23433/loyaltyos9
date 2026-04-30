@@ -561,6 +561,10 @@ let cardColor='#1C1C1E',payAmt=0,cdId=null,scannerMode='pay',scannerInstance=nul
 function esc(s){const d=document.createElement('div');d.textContent=String(s??'');return d.innerHTML;}
 let isScannerTransitioning = false;
 
+let barcodeDetectorActive = false;
+let barcodeAnimFrame = null;
+let videoStream = null;
+
 function cfgKey(id){return`merchant_cfg_${id}`;}
 function toInt(v,f=0){const n=parseInt(v,10);return Number.isFinite(n)?n:f;}
 function toNum(v,f=0){const n=Number(v);return Number.isFinite(n)?n:f;}
